@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temporizador de Rutes - Conductor</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+    <script type="module" src="scripts/main.js"></script>
+  </head>
+  <body>
+    <nav>
+      <h1>Conductor App</h1>
+    </nav>
+    <main class="main">
+      <div class="current">
+        <div class="current-day">25/01/2025</div>
+        <div class="current-instant">14:30</div>
+      </div>
+      <!-- Pop-up resumen oculto por defecto -->
+      <section class="finish-popup hidden">
+        <div class="popup-content">
+          <h2>Fi de Ruta</h2>
+          <div class="timer-ruta popup-timers">
+            <div class="timer-ruta-item">
+              <span class="label">Inici</span>
+              <div class="timer-ruta-inici">--:--</div>
+            </div>
+            <div class="timer-ruta-item center">
+              <div class="timer-ruta-num">
+                Ruta <span class="route-number">0</span>
+              </div>
+            </div>
+            <div class="timer-ruta-item">
+              <span class="label">Fi</span>
+              <div class="timer-ruta-fi">--:--</div>
+            </div>
+          </div>
+
+          <div>
+            Temps transcorregut: <span class="popup-timeElapsed">00:00:00</span>
+          </div>
+
+          <div class="popup-linea">
+            <label for="linea">Linea:</label>
+            <input type="text" id="linea" />
+          </div>
+
+          <div class="popup-tipusRuta">
+            <div class="radio-options">
+              <label>
+                <input type="radio" name="tipus" value="C" checked />
+                Conducció
+              </label>
+
+              <label>
+                <input type="radio" name="tipus" value="D" />
+                Disponibilitat
+              </label>
+            </div>
+          </div>
+
+          <div class="popup-actions">
+            <!-- Resume -->
+            <div class="container-actions-icon">
+              <button class="actions-resume" aria-label="Continuar">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6a6 6 0 0 1-6 6 6 6 0 0 1-5.65-4H5.08a8 8 0 0 0 7.92 6 8 8 0 0 0 0-16z"
+                  />
+                </svg>
+              </button>
+
+              <span>Seguir</span>
+            </div>
+
+            <!-- Save -->
+            <div class="container-actions-icon">
+              <button class="actions-save" aria-label="Guardar">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M17 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-4-4zM12 19a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm2-10H6V5h8v4z"
+                  />
+                </svg>
+              </button>
+              <span>Guardar</span>
+            </div>
+
+            <!-- Delete -->
+            <div class="container-actions-icon">
+              <button class="actions-delete" aria-label="Eliminar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="gray">
+                  <path
+                    d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </button>
+              <span>Borrar</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="timer">
+        <div class="timer-ruta main-timers">
+          <div class="timer-ruta-item">
+            <span class="label">Inici</span>
+            <div class="timer-ruta-inici">--:--</div>
+          </div>
+          <div class="timer-ruta-item center">
+            <div class="timer-ruta-num">
+              Ruta <span class="route-number">0</span>
+            </div>
+          </div>
+          <div class="timer-ruta-item">
+            <span class="label">Fi</span>
+            <div class="timer-ruta-fi">--:--</div>
+          </div>
+        </div>
+
+        <div class="time">
+          <div class="time-display">
+            <div class="circle-timer">
+              <svg class="progress-ring" width="160" height="160">
+                <circle class="progress-ring-circle" cx="80" cy="80" r="70" />
+              </svg>
+              <div class="time-content">
+                <div class="time-count">00:00:00</div>
+                <div class="time-label">Temps de ruta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="playORpause" aria-label="Iniciar/Pausar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+          <button class="stop" aria-label="Aturar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="6" width="12" height="12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="action-buttons">
+          <button class="new">Borrar avui</button>
+          <button class="view-records" onclick="location.href='records.html'">
+            Veure Registres
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

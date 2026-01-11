@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+body {
+  background: #fff5f5;
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1rem;
+  padding: 0.25rem 1.5rem;
+}
+nav {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 1rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 2rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #c62828;
+  text-align: center;
+}
+
+.main {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.widget {
+  margin-bottom: 2rem;
+}
+
+/* Header que funciona como botón */
+.toggle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #c62828;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
+}
+
+/* Triángulo de dropdown */
+.toggle-header::after {
+  content: "";
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid white;
+  transition: transform 0.3s ease;
+}
+
+/* Cuando está abierto rota 180° */
+.toggle-header.open::after {
+  transform: rotate(180deg);
+}
+
+/* Contenedor desplegable */
+.dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #e8ddcc;
+  border-radius: 0 0 4px 4px;
+  padding: 0 1rem;
+}
+
+/* Mostrar contenido cuando abierto */
+.dropdown.open {
+  max-height: 500px; /* suficiente para mostrar el calendario o info */
+  padding: 1rem;
+}
+
+/*       CALENDARI de FLATPICKER       */
+
+/* Ajustar calendario para que no se desborde */
+
+#calendar-widget > div.flatpickr-calendar.animate.inline {
+  width: 100% !important; /* Forzamos que tome el width deseado */
+  max-width: 100% !important; /* Para evitar que se reduzca */
+  box-sizing: border-box; /* Para que padding y border no aumenten el tamaño */
+}
+
+.flatpickr-rContainer {
+  width: 100%;
+}
+
+.flatpickr-weekdaycontainer {
+  max-width: 250px;
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+.dayContainer {
+  display: contents !important; /* o grid si quieres aplicar a cada semana */
+}
+.flatpickr-days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.flatpickr-day {
+  min-width: 1.8rem !important;
+  max-width: 1.8rem !important;
+  height: 1.8rem !important;
+  text-align: center;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+  visibility: hidden;
+}
+
+/*             INFO RUTA                */
+
+.info-rute {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: visible;
+  font-size: 0.9rem;
+}
+
+/* Cabecera */
+.rute-header,
+.rute-rows {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr 2fr 2fr;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.rute-rows > div {
+  border-right: 1px solid #eee; /* opcional, para líneas verticales */
+}
+
+/* Última fila no debe tener borde inferior */
+.rute-rows:last-child {
+  border-bottom: none;
+}
+
+.rute-header {
+  background-color: #ededed;
+  color: #212121;
+  font-weight: bold;
+
+  border-bottom: 2px solid #ccc;
+}
+
+.rute-rows {
+  background-color: white;
+  color: #444;
+}
+
+.rute-rows.C {
+  background-color: #fdd835;
+}
+.rute-rows.D {
+  background-color: #ffcc80;
+}
+
+/* Opcional: efecto hover para filas */
+.rute-rows:hover {
+  background-color: #f3f3f3;
+}
+
+.suma {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ededed;
+  padding: 0.1rem;
+}
+
+.resum {
+  margin-top: 0.5em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Total {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #333;
+}
+
+/*        Edit Layout       */
+
+.edit {
+  background: linear-gradient(135deg, #fb8c00, #c62828);
+  color: white;
+  box-shadow: 0 3px 12px rgba(251, 140, 0, 0.4);
+  padding: 0.2rem 0.5rem;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.5rem 0rem;
+}
+
+.edit-actions button {
+  padding: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 1px 1px 1px 1px #333;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Guardar botón: verde */
+.edit-actions-save {
+  background-color: #43a047;
+  color: white;
+}
+
+.edit-actions-save:hover {
+  background-color: #45a049;
+}
+
+/* Cancelar botón: gris claro o rojo tenue */
+.edit-actions-cancel {
+  background-color: #ef9a9a;
+  color: #212121;
+}
+
+.edit-actions-cancel:hover {
+  background-color: #d5d5d5;
+}
+
+/* Efecto sutil al hacer clic */
+.edit-actions button:active {
+  transform: scale(0.97);
+}
+.delete-btn {
+  position: absolute;
+  right: -20px;
+  z-index: 9999;
+  top: 5px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* COLORS DE EDICIO */
+.edit-mode .rute-rows {
+  opacity: 0.6;
+  cursor: pointer;
+  position: relative;
+}
+
+.edit-mode .rute-rows:hover {
+  opacity: 1;
+  background-color: #e94e27;
+}
+
+.rute-rows.selected {
+  background-color: #e94e27;
+}
+
+/*  Widgets de edicio */
+.rute-name-input {
+  width: auto;
+  background-color: wheat;
+  min-width: 1ch;
+  max-width: 15ch;
+  font: inherit;
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+}
+
+.rute-name-time {
+  width: auto;
+  background-color: wheat;
+  width: 6ch;
+  font: inherit;
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Conductor App - Registres</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link rel="stylesheet" href="./styles/records.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/cat.js"></script>
+    <script type="module" src="./scripts/records.js"></script>
+  </head>
+  <body>
+    <nav>
+      <button class="back-button" onclick="location.href='index.html'">
+        ←
+      </button>
+      <h1>Conductor App</h1>
+    </nav>
+    <main class="main">
+      <div class="widget" id="calendari">
+        <div
+          class="toggle-header open"
+          onclick="toggleWidget(this, 'calendar-widget')"
+        >
+          📅 Calendari
+        </div>
+        <div id="calendar-widget" class="dropdown">
+          <div id="calendar"></div>
+        </div>
+      </div>
+
+      <div class="widget">
+        <div
+          class="toggle-header open"
+          onclick="toggleWidget(this, 'info-widget')"
+        >
+          📝 Informació
+        </div>
+        <div id="info-widget" class="dropdown open">
+          <div id="info-content">Selecciona un dia per veure la informació</div>
+          <div class="edit-actions">
+            <button class="edit-actions-save hidden">Guardar canvis</button>
+            <button class="edit-actions-cancel hidden">Cancelar</button>
+          </div>
+          <div class="info-rute">
+            <!-- Cabecera -->
+            <div class="rute-header">
+              <div class="rute-num">Num</div>
+              <div class="rute-name">Línia</div>
+              <div class="rute-type">Tipus</div>
+              <div class="rute-ini">Inici</div>
+              <div class="rute-fi">Final</div>
+            </div>
+
+            <!-- Contenedor para filas dinámicas -->
+            <div id="rute-rows" class="rute-rows-container">
+              <!-- Aquí se inyectarán las filas con JavaScript -->
+            </div>
+
+            <!-- Totals -->
+            <div class="suma">
+              <div class="suma-conduccio">
+                Conducció: <span id="tempsCond">0:00</span> h
+              </div>
+              <div class="suma-disponibilitat">
+                Disponible: <span id="tempsDisp">0:00</span> h
+              </div>
+            </div>
+          </div>
+          <div class="resum">
+            <div class="Total">
+              Total dia: <span id="tempsTotal">0:00</span> h
+            </div>
+            <button class="edit">Editar</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
