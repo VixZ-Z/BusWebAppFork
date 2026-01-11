@@ -2,8 +2,8 @@
 
 Proyecto de gestión de rutas de autobús, esto es un fork ya que la Aplicación real es para un solo usuario y actualmente se encuentra en uso.  
 Permite registrar rutas/líneas de bus, temporizar trayectos y almacenar datos en una base de datos PostgreSQL usando Supabase.
-
 Posteriormente se añadirá el seguimiento desde GoogleMaps.
+
 ---
 
 ## Tecnologías
